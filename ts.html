@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Love Letter to You 💌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff0f5;
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to bottom, #ffb6c1, #ffe4e1);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3em;
+      color: #e75480;
+      margin: 0;
+    }
+
+    .letter-container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .letter-container::before {
+      content: "💌";
+      font-size: 2em;
+      position: absolute;
+      top: -25px;
+      left: 20px;
+    }
+
+    .letter-content {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5em;
+      color: #e75480;
+      line-height: 1.8;
+      white-space: pre-wrap;
+    }
+
+    #playMusicButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #e75480;
+      color: white;
+      font-family: 'Dancing Script', cursive;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 9999;
+    }
+
+    .back-btn {
+      display: block;
+      margin: 40px auto;
+      text-align: center;
+      text-decoration: none;
+      background-color: #e75480;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .heart {
+      position: fixed;
+      top: -30px;
+      font-size: 24px;
+      color: #ff69b4;
+      animation: fall linear infinite;
+      opacity: 0.8;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-30px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    .gift-box {
+      position: fixed;
+      bottom: 100px;
+      left: 20px;
+      width: 120px;
+      height: 120px;
+      cursor: pointer;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .gift-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .gift-box:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .gift-reveal {
+      position: fixed;
+      bottom: 160px;
+      left: 20px;
+      background: #fff0f5;
+      color: #e75480;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.3em;
+      display: none;
+      max-width: 250px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="love.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="playMusicButton">🎵 Play Music</div>
+
+<!-- 🎁 Gift Box and Reveal -->
+<div class="gift-box" id="giftBox">
+  <img src="images/gift.png" alt="Gift Box" />
+</div>
+
+<!-- Message below gift box -->
+<div id="giftMessage" style="display: none; position: fixed; bottom: -10px; left: 20px; background-color: #ffeef3; color: #e75480; padding: 12px 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); font-family: 'Dancing Script', cursive; font-size: 1.2em; max-width: 250px; z-index: 1000;">
+  🎉 Surprise! You’re the best gift life ever gave me! 💝
+</div>
+
+<!-- Reveal Block with image and caption -->
+<div class="gift-reveal" id="giftReveal">
+  <div style="padding: 10px; background-color: #ffeef3; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    🎉 Surprise! You’re the best gift life ever gave me! 💝
+  </div>
+  <figure style="margin: 0; text-align: center;">
+    <img src="images/surprise-photo.jpg" alt="Surprise Image" style="width: 100%; border-radius: 10px;" />
+    <figcaption style="margin-top: 8px; font-style: italic; color: #e75480;">
+      Irikkatte ninte fav pani puri, avde indarnel njn vaangi thanneru,ippam ith vech adjust cheyyuu Aleenaye💕
+    </figcaption>
+  </figure>
+</div>
+
+<header>
+  <h1>A Letter Just for You 💖</h1>
+</header>
+
+<div class="letter-container">
+  <div class="letter-content">
+    My dearest love,
+
+    Entee Aleena Anoop eee,
+    enthaa ivde nadakkunnee 1 year, 12 months, 52 weeks, 365 days, 8760 hours, 525600 minutes, 31536000 seconds, ayshooo a loong time lee... Engeneyaa ,entha parayande  ariyillaa parayande ariyillyaa pakshee indalloo mowlee njn munbum paranjuu innum parayunnuu ini ennum ingane thanne avum "Ever since you walked into my life, every single day has blossomed into something beautiful dahh". Enikk oru single personil ninn maathram ethreee happiness ahn ariyoo kittunnee , aarkkokkee enne happyy akkan pattunnee athine kaal kooree kooduthal ninakk pattum.I am happy that i got to spend this marvellous year with you. enikk ariyaam ippoo nammal long distance ahnn enikk ee timil angott veran pattoola pakshe nammaldee first year alleee enne kond ivdee irunn cheyyan pattunna maximum njn cheyyandee. Ithelum njn ente Aleenakk vendi cheyyandee. Enthokkee ayaalum aa neritt kanunnathintee ith ee websitil indavoola but nammalkk ith alle pattulluu sooo ithintee korav okke namkk neritt kanumbol maataam. Ninte life wonderful avatte, eppolum happyy ayii irikkatte, whatever be the circumstances njn koode enthinum njn indavum, eppolum ninte facil aa beautiful chiri venam enikk athreee mathiii... 
+
+    Words will always fall short when it comes to expressing what you mean to me. You are the light that turned my ordinary days into poetry, and every moment spent with you feels like a page from the most beautiful novel ever written.
+
+    You are not just the love of my life, you are my best friend, my comfort, my peace, and my forever.
+
+    I promise to always love you, to listen to your heart, to be your safe space, and to walk beside you through every season of life.
+
+    With all my love, always,
+    ~ Rithwik 💗
+  </div>
+</div>
+
+<a href="index.html" class="back-btn">← Back to Our Love Story</a>
+
+<script>
+  const audio = document.getElementById('bgMusic');
+  const playButton = document.getElementById('playMusicButton');
+
+  function playMusic() {
+    audio.play().catch((e) => {
+      console.log("Autoplay blocked, waiting for user interaction");
+    });
+    playButton.style.display = 'none';
+  }
+
+  playButton.addEventListener('click', playMusic);
+
+  document.body.addEventListener('click', function handleClick() {
+    playMusic();
+    document.body.removeEventListener('click', handleClick);
+  });
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerText = '💗';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = 2 + Math.random() * 3 + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+
+  setInterval(createHeart, 300);
+
+  // 🎁 Gift reveal logic with confetti
+  document.getElementById('giftBox').addEventListener('click', function () {
+    const reveal = document.getElementById('giftReveal');
+    const message = document.getElementById('giftMessage');
+    const isVisible = reveal.style.display === 'block';
+
+    reveal.style.display = isVisible ? 'none' : 'block';
+    message.style.display = isVisible ? 'none' : 'block';
+
+    if (!isVisible) {
+      confetti({
+        particleCount: 120,
+        spread: 70,
+        origin: { y: 0.8 }
+      });
+      setTimeout(() => {
+        confetti({
+          particleCount: 60,
+          spread: 100,
+          origin: { y: 0.7 }
+        });
+      }, 200);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Love Timeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: url('images/lovely-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      color: white;
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #e75480;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .container {
+      padding: 20px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+     .left {
+       left: 0;
+       transform: translateX(-100px); 
+    }
+
+    .right {
+  left: 50%;
+  transform: translateX(20px); 
+}
+
+    .container::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: white;
+      border: 4px solid #e75480;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .right::after {
+      left: -10px;
+    }
+
+    .content {
+      padding: 20px;
+      background-color: white;
+      position: relative;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .content h2 {
+      color: #e75480;
+      margin: 10px 0;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    #playMusicButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #e75480;
+      color: white;
+      font-family: 'Dancing Script', cursive;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 9999;
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+
+      .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .container::after {
+        left: 15px;
+      }
+
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="nenjin ezuth.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="playMusicButton">🎵 Play Music</div>
+
+<h1>💖 Our Love Timeline 💖</h1>
+
+<div class="timeline">
+  <!-- Timeline entries -->
+  <div class="container left">
+    <div class="content">
+      <img src="images/firstchat.jpg" alt="First chat💘(On record😂)" />
+      <h2>October 9, 2022</h2>
+      <p>First chat💘(On record😂)</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <img src="images/proposal.jpg" alt="Beginning of Everything🤗💖" />
+      <h2>July 10, 2024</h2>
+      <p>Beginning of Everything🤗💖-The day from which i started enjoying everyday</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <img src="images/firstluvu.jpg" alt="Your first 'I LOVE U'❤️☺️" />
+      <h2>July 21, 2024</h2>
+      <p>Your first 'I LOVE U'❤️☺️-Appo indayaa feel indalloo chathalum marakkoola</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <img src="images/firstcall.jpg" alt="First call" />
+      <h2>July 30, 2024</h2>
+      <p>First call-Orma indo njn vlichitt veed evdeyaa athinte munbiloode veranoo choichee😂❤️</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <img src="images/firstvk.jpg" alt="First virtual kiss" />
+      <h2>August 3, 2024</h2>
+      <p>First virtual kiss-Njn ith kittiyaaa time indalloo peakil arnuu enikk engeneyaa describe cheyyandee ariyoola💝🤭</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <img src="images/firstcap.jpg" alt="1st Photo" />
+      <h2>August 31, 2024</h2>
+      <p>First photo-Ariyandee edthath ahnelum nammalde first photo</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <img src="images/1month.jpg" alt="Our Second month Anniversary" />
+      <h2>September 10, 2024</h2>
+      <p>Our Second month Anniversary-Aaa dayy indalloo mowlee njn completely lost arnuuu,ellam kond njn happyy arnuu✨♥️</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <img src="images/Onam.jpg" alt="Nammalde Onam" />
+      <h2>September 13, 2024</h2>
+      <p>Nammalde 1st Onam-Annu enth nice arnuu nammalde first orumich fud adi,first orumich porath poval,first orumich ninnu photo edukal ayshoo orkumboo thannee💝</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <img src="images/firstgift.jpg" alt="Ninte first gift" />
+      <h2>October 02, 2024</h2>
+      <p>Ente one of the best bdayy and enikk kittiyya ettum best bday gift , nee time illanjittum ith enikk morning irunn ezudhi thannuu ninte bdayy wish thannee more than enough arnuu ithum koodii ayappoo parayandallooo😭💖</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <img src="images/firstpic.jpg" alt="Ninte first pic" />
+      <h2>October 21, 2024</h2>
+      <p>Nee enikk swantham ayitt send cheythaa nintee adyathee photooo❤️🤗</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <img src="images/tour.jpg" alt="First Trip" />
+      <h2>November 09, 2024</h2>
+      <p>Entee dahh neee verillyaa paranj ninnitt avasanam sammaichappoo ayyyoo ethree happyy arnuu ariyoo and ath ethree worth ayirunuu entee best trip arnuu and athinte main reason nee arnuu ayshoo enth resam arnoo dooo,nintee koodee enikk inim koree koree travel cheyyanam😌💕</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <img src="images/firstvc.jpg" alt="First Video Call" />
+      <h2>November 19, 2024</h2>
+      <p>Orma indooo nee ennod mudi vettattee choichee ath kayn aa rathrii mudi vettii pranjitt kanich theran ayitt video call vilichee,annum paranju innum paruyunu engene ayalum u look gorgeous dahh😉💕</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <img src="images/housewarming.jpg" alt="Ninte house warming" />
+      <h2>November 24, 2024</h2>
+      <p>Ayyooo😂 , njn adyayitt nintee veetilkk vannath,nammal koree neram orumich irunnath , ninte ammanod samsarikkan patti,ninte achane kanan pattii ,ninteee veed nintee room ellam ,ayshh nallaa sugam ahnn orkkumboo😊💗</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <img src="images/annualday.jpg" alt="Annual day" />
+      <h2>December 19, 2024</h2>
+      <p>Well more than aa annual day kananee kaalum ninnee kanan ahnn vannee , annuu ahnn njn adyam ayitt ivdenn vandii kerii vannee ninne kanan ayitt💝😌</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <img src="images/bday.jpg" alt="Nintee Bdayyy" />
+      <h2>February 7, 2025</h2>
+      <p>Shyoooo ninnee verillaa vishwasippichillee njn , njn allelum oru convincing star ayii poii😂,njn sure arnuu orikkilum nintee bdayy njn vitt kalayillaa enn athum nammal committed ayitt first bdayy, ath athree special ahnn ,athum ninnee happyy ayii kandalloo, ath mathiloooo.... </p>
+    </div>
+  </div>
+</div>
+
+<a href="index.html" style="display: block; text-align: center; margin-top: 40px; font-family: 'Dancing Script'; color: white; text-decoration: none;">
+  ← Back to Our Love Page
+</a>
+<a href="loveletter.html" style="display: block; text-align: center; margin-top: 10px; font-family: 'Dancing Script'; color: white; text-decoration: none;">
+  💌 Read My Love Letter
+</a>
+
+<!-- 🎵 MUSIC PLAY SCRIPT -->
+<script>
+  const audio = document.getElementById('bgMusic');
+  const playButton = document.getElementById('playMusicButton');
+
+  function playMusic() {
+    audio.play().catch((e) => {
+      console.log("Autoplay blocked, waiting for user interaction");
+    });
+    playButton.style.display = 'none';
+  }
+
+  playButton.addEventListener('click', playMusic);
+
+  // Optional: click anywhere to start music
+  document.body.addEventListener('click', function handleClick() {
+    playMusic();
+    document.body.removeEventListener('click', handleClick); // Only run once
+  });
+</script>
+
+</body>
+</html>

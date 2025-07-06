@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Love Story</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: #fff0f5;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #ffb6c1, #ffe4e1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5em;
+      margin-bottom: 0.3em;
+    }
+
+    header p {
+      font-size: 1.1em;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2em;
+      color: #e75480;
+      text-align: center;
+    }
+
+    section p {
+      font-size: 1em;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .photo-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .polaroid {
+      background: white;
+      padding: 10px 10px 30px 10px;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      max-width: 220px;
+      text-align: center;
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .polaroid:hover {
+      transform: rotate(2deg) scale(1.03);
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      display: block;
+    }
+
+    .caption {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.1em;
+      color: #e75480;
+      margin-top: 8px;
+    }
+
+    .reasons-list {
+      list-style: heart;
+      padding-left: 1.2em;
+      font-size: 0.95em;
+    }
+
+    .love-letter {
+      background: #ffe4e1;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #f08080;
+      margin-top: 30px;
+    }
+
+    footer {
+      background: #ffb6c1;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+
+    .heart {
+      position: fixed;
+      top: -30px;
+      font-size: 24px;
+      color: #ff69b4;
+      animation: fall linear infinite;
+      opacity: 0.8;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .love-letter-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .letter-wrapper {
+      position: relative;
+      width: 200px;
+      height: 140px;
+      background: #f08080;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      animation: floatLetter 3s ease-in-out infinite;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+
+    .letter-wrapper:hover {
+      transform: scale(1.05);
+    }
+
+    .envelope {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ffb6c1;
+      clip-path: polygon(0 100%, 50% 0, 100% 100%);
+      z-index: 2;
+    }
+
+    .letter-content {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      right: 10px;
+      padding: 10px;
+      background: white;
+      border-radius: 5px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1em;
+      color: #e75480;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .letter-wrapper.open .letter-content {
+      opacity: 1;
+      z-index: 3;
+    }
+
+    @keyframes floatLetter {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+    #playMusicButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #e75480;
+      color: white;
+      font-family: 'Dancing Script', cursive;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 9999;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+
+      header p,
+      section p {
+        font-size: 1em;
+      }
+
+      section h2 {
+        font-size: 1.8em;
+      }
+
+      .reasons-list {
+        font-size: 0.9em;
+      }
+
+      .photo-gallery img {
+        width: 95%;
+        margin: 8px;
+      }
+
+      .polaroid {
+        max-width: 90%;
+        margin: 10px auto;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Our Love Story 💕</h1>
+  <p>One year of love, laughter, and unforgettable memories — and it's just the beginning.</p>
+</header>
+
+<audio id="bgMusic" loop>
+  <source src="ye tune kya kiya.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<div id="playMusicButton"> 🎵 Play Music</div>
+
+<section>
+  <h2>"How our beautiful journey took its first breath"</h2>
+  <p>It all started on July 10, 2024... a day that changed my life. That moment feels like magical dahhh — From someone who was just a girl I know to the only girl I want, you are someone special.</p>
+</section>
+
+<section>
+  <h2>Cherished Moments..</h2>
+  <p>From late-night chats to calls lasting for hours, every moment with you has been a treasure. Here's some of our little but soo precious moments:</p>
+  <div class="photo-gallery">
+    <div class="polaroid">
+      <img src="images/photo1.jpg" alt="Onam">
+      <p class="caption">Nammalde first outing together</p>
+    </div>
+    <div class="polaroid">
+      <img src="images/photo2.jpg" alt="Our Firt Trip">
+      <p class="caption">Mowlee one of the best trip in my entire life and athinte main reason nee ahnn Futuril iniyum idh polee indavattee</p>
+    </div>
+    <div class="polaroid">
+      <img src="images/photo3.jpg" alt="Annual Day">
+      <p class="caption">Njn ivdenn completely poyene shesham nammaldee first meet</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2> Reasons I Love You</h2>
+  <ul class="reasons-list">
+    <li>Your smile brightens my world</li>
+    <li>You listen with your whole heart</li>
+    <li>1)Your eyes. 2) your hair 3) your nose  4) your name. 5) your personality. 6) your laugh. 7) your smile. 8) your voice. 9) your hands. 10) your embrace. 11) your joy. 12) your face. 13) your annoyed face. 14) your kindness. 15) your affection. 16) your commitment. 17) your beauty. 18) your love. 19) your hugs. 20) your messages. 21) your style. 22)your forgiveness. 23) your perfection. 24) the time we spend together. 25) the memories we made. 26) the sound of you. 27) watching the photos & videos you send me. 28) the jokes we make together. 29) how you make me happy within 276 zetroseconds. 30) the way you can love someone like me. 31) how i can talk to you and still not get bored. 32) the way we met somewhere and are so close now. 33) the thought of you. 34) the smell of you. 35) the compassionate love. 36) you strength (you are very strong >). 37) your bravery. 38) your intelligence. 39)your passion. 40) your creativity. 41) your patience. 42) your respectable. 43) your positivity. 44) your trusting. 45) i believe everything you will say to me. 46) i can be myself around you. 47) i can listen to you without getting annoying. 48) my dreams about you. 49) the fact that there is no downside about you. 50) i feel safe around you. 51) you are trustworthy. 52) you always light up my day. 53) you are constantly on my mind. 54) you are very awesome. 55) you're incredible. 56) you will never let me down. 57)how you make time to spend with me. 58) well, you are ABSOLUTELY GORGEOUS! 59) you can cheer me up. 60) you are adorable. 61) your childish fights. 62) you are literally the definition of perfection. 63) i feel like im able to vent to you without feeling bad. 64) youre supportive. 65)youre honest. 66) you bring a huge smile to my face whenever i talk to you. 67) you make me feel like im actually important. 68) you never give up too easily. 69) you are always there for me. 70) you teasing me . 71) you are the prettiest lady in my life as well. 72) you love the real me. 73) you care for someone like me. 74) always with me in my bad days. 75) I LOVE YOU SO MUCH MY LOVE. "Ithokkeee paranjittum kazhiyunillaaa...,enikk personally thonunu ninne kurich njn write cheyyanenkil oru novel thanne finish cheyyam enn,hehehehe pakshe ithine limitation indd athkond njn nirthunnuu"</li>
+  </ul>
+</section>
+
+<section class="love-letter-section">
+  <h2>A Letter from My Heart 💌</h2>
+  <div class="letter-wrapper">
+    <div class="envelope"></div>
+    <div class="letter-content">
+      My Love,<br>
+      Every moment with you is magic. You make my days brighter, my heart fuller, and my soul warmer.<br><br>
+      I promise to hold your hand through every storm, dance with you in every joy, and love you fiercely always.<br><br>
+      Yours forever,<br>~ Rithwik
+    </div>
+  </div>
+</section>
+<button id="playMusicButton" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">🎵 Play Music</button>
+<section id="love-counter" style="text-align: center; margin-top: 40px; font-family: 'Dancing Script', cursive;">
+  <h2>💕 Days of Love 💕</h2>
+  <p style="font-size: 1.5em; color: #e75480;">
+    We have been in love for <span id="daysInLove">0</span> days,My Love..!
+  </p>
+
+<a href="timeline.html" style="margin: 0 10px; padding: 10px 20px; background-color: #e75480; color: white; border-radius: 8px; font-family: 'Dancing Script', cursive; text-decoration: none;">
+  📜 Our Timeline
+</a>
+</section>
+
+<footer>
+  💌 Forever yours, ~Rithwik <br />
+  July 10th, 2025
+</footer>
+
+<script>
+  document.querySelector('.letter-wrapper').addEventListener('click', function () {
+  this.classList.toggle('open');
+});
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerText = '💗';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = 2 + Math.random() * 3 + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+
+  setInterval(createHeart, 300);
+
+  document.querySelectorAll('.photo-gallery img').forEach(img => {
+    img.addEventListener('touchstart', () => {
+      img.classList.toggle('tapped');
+    });
+  });
+
+  function calculateDaysOfLove(startDateStr) {
+  const startDate = new Date(startDateStr);
+  const today = new Date();
+  const diffTime = today - startDate;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  document.getElementById("daysInLove").textContent = diffDays;
+}
+
+// Start counting from July 10, 2024
+calculateDaysOfLove("2024-07-10");
+
+const audio = document.getElementById('bgMusic');
+const playButton = document.getElementById('playMusicButton');
+
+function playMusic() {
+  audio.play().catch((e) => {
+    console.log("Autoplay blocked, waiting for user interaction");
+  });
+  playButton.style.display = 'none';
+}
+
+playButton.addEventListener('click', playMusic);
+
+// Optional: click anywhere to start music
+document.body.addEventListener('click', function handleClick() {
+  playMusic();
+  document.body.removeEventListener('click', handleClick); // Only run once
+});
+</script>
+  
+</body>
+</html>

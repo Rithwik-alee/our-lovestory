@@ -151,9 +151,11 @@
       color: white;
       border-radius: 20px;
       font-family: 'Dancing Script', cursive;
-      font-size: 1.2em;
+      font-size: 1.6em; /* was 1.2em */
       text-decoration: none;
-      display: inline-block;
+      display: inline-flex;         /* changed from inline-block */
+      align-items: center;          /* vertical alignment */
+      gap: 8px;                     /* spacing between emoji and text */
       border: none;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
@@ -161,6 +163,12 @@
     .timeline-button:hover {
       background-color: #ff6f91;
       transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 182, 193, 0.8);
+    }
+    .timeline-button .emoji {
+      font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+      font-size: 1.3em;
+      line-height: 1;
     }
     .letter-wrapper {
       position: relative;
@@ -316,7 +324,7 @@
     </div>
   </div>
 </section>
-<button id="playMusicButton" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">🎵 Play Music</button>
+
 <section id="love-counter" style="text-align: center; margin-top: 40px; font-family: 'Dancing Script', cursive;">
   <h2>💕 Days of Love 💕</h2>
   <p style="font-size: 1.5em; color: #e75480;">
@@ -324,8 +332,10 @@
   </p>
 
 <a href="timeline.html" class="timeline-button">
-  📜 Our Timeline
+  <span class="emoji">📜</span>
+  <span>Our Timeline</span>
 </a>
+
 </section>
 
 <footer>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -47,15 +46,15 @@
       width: 50%;
     }
 
-     .left {
-       left: 0;
-       transform: translateX(-100px); 
+    .left {
+      left: 0;
+      transform: translateX(-100px); 
     }
 
     .right {
-  left: 50%;
-  transform: translateX(20px); 
-}
+      left: 50%;
+      transform: translateX(20px); 
+    }
 
     .container::after {
       content: '';
@@ -112,6 +111,28 @@
       z-index: 9999;
     }
 
+    .footer-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-family: 'Dancing Script', cursive;
+      color: white !important;
+      text-decoration: none !important;
+      font-size: 1.2em;
+    }
+
+    .footer-link:visited,
+    .footer-link:hover,
+    .footer-link:active {
+      color: white !important;
+      text-decoration: none !important;
+
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+
     @media screen and (max-width: 768px) {
       .timeline::after {
         left: 31px;
@@ -145,7 +166,6 @@
 <h1>💖 Our Love Timeline 💖</h1>
 
 <div class="timeline">
-  <!-- Timeline entries -->
   <div class="container left">
     <div class="content">
       <img src="images/firstchat.jpg" alt="First chat💘(On record😂)" />
@@ -253,12 +273,9 @@
   </div>
 </div>
 
-<a href="index.html" style="display: block; text-align: center; margin-top: 40px; font-family: 'Dancing Script'; color: white; text-decoration: none;">
-  ← Back to Our Love Page
-</a>
-<a href="loveletter.html" style="display: block; text-align: center; margin-top: 10px; font-family: 'Dancing Script'; color: white; text-decoration: none;">
-  💌 Read My Love Letter
-</a>
+<!-- ✅ Updated footer links -->
+<a href="index.html" class="footer-link">← Back to Our Love Page</a>
+<a href="loveletter.html" class="footer-link">💌 Read My Love Letter</a>
 
 <!-- 🎵 MUSIC PLAY SCRIPT -->
 <script>
